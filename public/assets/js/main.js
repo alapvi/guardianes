@@ -75,19 +75,25 @@ function languageChange(lang){
 buttons.forEach(btn=>btn.addEventListener("click",()=>languageChange(btn.dataset.lang)));
 function showGuardian(name){
  currentGuardian=name;
- picture.src=portraits[name];
+ // Safari: asignar la foto con el modal visible y permitir que vuelva a mostrarse.
+ picture.loading="eager";
+ picture.style.visibility="visible";
+ picture.removeAttribute("data-missing");
+ if(picture.getAttribute("src")!==portraits[name])picture.setAttribute("src",portraits[name]);
  picture.alt=name;
  title.textContent=name.charAt(0).toUpperCase()+name.slice(1);
  description.textContent=missions[currentLanguage][name];
 }
 document.querySelectorAll("[data-guardian]").forEach(card=>{
- card.addEventListener("click",()=>{showGuardian(card.dataset.guardian);if(typeof dlg.showModal==="function")dlg.showModal();});
+ card.addEventListener("click",()=>{if(!dlg.open&&typeof dlg.showModal==="function")dlg.showModal();showGuardian(card.dataset.guardian);});
 });
 document.querySelector("#close-dialog").addEventListener("click",()=>dlg.close());
 document.querySelector("#dialog-back").addEventListener("click",()=>dlg.close());
 dlg.addEventListener("click",event=>{if(event.target===dlg)dlg.close()});
 dlg.addEventListener("close",()=>{currentGuardian=null});
 document.querySelectorAll("img").forEach(img=>{
+ if(img===picture)return; // La imagen del modal cambia de src; no ocultarla permanentemente.
  img.addEventListener("error",()=>{img.style.visibility="hidden";img.setAttribute("data-missing","true")});
 });
+picture.addEventListener("load",()=>{picture.style.visibility="visible";picture.removeAttribute("data-missing")});
 languageChange("es");
