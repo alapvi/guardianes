@@ -1,20 +1,61 @@
 # Guardianes de la Tierra / Guardians de la Terra
 
-Web estática bilingüe para presentar al tribunal el proceso de creación original de seis guardianes educativos: Trasto, Flora, Doris, Aeris, Gota y Chispas.
+Web estática bilingüe (castellano/valenciano) para presentar al tribunal el proceso de creación de los seis guardianes educativos: Trasto, Flora, Doris, Aeris, Gota y Chispas.
 
-## Estado de desarrollo
+## Estado real
 
-La primera versión está preparada: portada, origen del proyecto, making of con modelado/impresión/pintura, galería interactiva y finalidad educativa. Incluye fotografías y vídeos originales proporcionados por la persona autora.
+✅ Código de la página, diseño responsive, cambio de idioma y galería interactiva incorporados a `main`.
 
-**Pendiente:** incorporar al repositorio los archivos del paquete de publicación (HTML, CSS, JS y medios optimizados). El boceto original de la primera fase sigue pendiente.
+✅ Configuración de Cloudflare Workers con Static Assets (`wrangler.jsonc`) y `package.json`.
 
-## Configuración de Cloudflare Workers
+⚠️ **Pendiente:** subir fotografías y vídeos originales al repositorio. El código ya tiene las rutas preparadas, pero los archivos multimedia todavía no están en GitHub, por lo que las imágenes no aparecerán en la web desplegada hasta completar esta etapa.
 
-- Proyecto: `guardianes`
+⚠️ Pendiente: el boceto original para la primera fase del making of.
+
+## Multimedia pendiente (estructura prevista)
+
+```text
+public/assets/img/portada/fullguardianes.jpeg
+public/assets/img/guardianes/guardian1.jpeg
+public/assets/img/guardianes/guardian2.jpeg
+public/assets/img/guardianes/guardian3.jpeg
+public/assets/img/guardianes/guardian4.jpeg
+public/assets/img/guardianes/guardian5.jpeg
+public/assets/img/guardianes/guardian6.jpeg
+public/assets/img/proceso/electricidad.png
+public/assets/img/proceso/3dprint.png
+public/assets/img/proceso/3dfinal.png
+public/assets/img/proceso/pintura1.jpeg
+public/assets/img/proceso/pintura2.jpeg
+public/assets/img/proceso/poster-01.jpg
+public/assets/img/proceso/poster-02.jpg
+public/assets/video/impresion-01.mp4
+public/assets/video/impresion-02.mp4
+```
+
+Los archivos de medios optimizados ya están incluidos en el ZIP `guardianes-web-v1.zip` que se facilitó en la conversación. No se debe subir el ZIP sin descomprimir: los recursos deben copiarse a sus rutas correspondientes.
+
+## Cloudflare Workers
+
+- Repositorio: `alapvi/guardianes`
 - Rama: `main`
 - Directorio raíz: `/`
-- Build command: vacío
-- Deploy command: `npx wrangler deploy`
-- Assets directory en Wrangler: `./public`
+- Comando de compilación: vacío
+- Comando de despliegue: `npx wrangler deploy`
+- Directorio de recursos estáticos: `./public`
+- Worker: `guardianes`
 
-La clonación fallaba mientras este repositorio no tenía ningún commit. Este README inicializa la rama `main`; una vez incorporada la web y `wrangler.jsonc`, el despliegue podrá continuar. Si sigue fallando la clonación, revisar permisos de Cloudflare en GitHub.
+## Desarrollo local
+
+```bash
+npm install
+npm run dev
+```
+
+## Despliegue
+
+```bash
+npm run deploy
+```
+
+Los recursos se servirán como activos estáticos. Los vídeos usan reproducción manual y no se cargan completamente de forma anticipada. El visor STL queda reservado para una versión posterior.
