@@ -14,7 +14,7 @@ Web estática bilingüe (castellano/valenciano) para presentar al tribunal el pr
 
 ✅ Comprobadas en GitHub todas las rutas de recursos utilizadas por `public/index.html`.
 
-⚠️ Sigue pendiente incorporar una imagen real del boceto inicial. La web presenta esa fase como pendiente, sin inventar un boceto.
+✅ La primera fase del making of incluye la **ilustración base original** facilitada por la autora en `public/assets/img/proceso/boceto-base.webp` (1500 px, optimizada para móvil). El texto diferencia la ilustración inicial del proceso posterior de bocetado.
 
 ⚠️ La publicación definitiva debe verificarse en Cloudflare Workers y probarse desde un teléfono antes de generar el QR del tribunal.
 

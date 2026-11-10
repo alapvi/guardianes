@@ -12,7 +12,7 @@ value2:"Identitat educativa",value2Text:"Sis personatges que donen sentit als re
 value3:"Compromís ambiental",value3Text:"Una aventura per a aprendre a cuidar el nostre planeta.",
 makingSmall:"02 · AIXÍ ES VAN FER",makingTitle:"L’art de fer-los realitat.",
 makingText:"No van nàixer en una botiga. Cada guardià va recórrer un camí: imaginar, dissenyar, imprimir i pintar. Este és el nostre making of.",
-step1Label:"EL PUNT DE PARTIDA",step1:"Primer, una idea",step1Text:"Tot comença amb un esbós: imaginar l’aspecte i la personalitat de cada guardià.",sketchPending:"Pròximament: esbós original del personatge.",
+step1Label:"EL PUNT DE PARTIDA",step1:"Primer, una idea",step1Text:"Tot comença amb un esbós: imaginar l’aspecte i la personalitat de cada guardià.",sketchDescription:"L’esbós parteix d’esta il·lustració inicial, que definix l’aparença i la personalitat dels sis guardians.",sketchCaption:"IL·LUSTRACIÓ BASE · PUNT DE PARTIDA",
 step2Label:"DEL PAPER A LA PANTALLA",step2:"El disseny pren forma",step2Text:"El personatge es modela digitalment i s’obté un arxiu STL per a preparar la impressió 3D.",
 step3Label:"DEL DIGITAL AL REAL",step3:"La màgia d’imprimir en 3D",step3Text:"El programa de laminatge prepara les instruccions d’impressió. Capa a capa, la figura es fa realitat.",printing:"IMPRESSIÓ EN MARXA",video1:"Impressió · Vista 1",video2:"Impressió · Vista 2",
 step4Label:"EL TREBALL ARTESANAL",step4:"Pinzellada a pinzellada",step4Text:"Les figures acabades d’imprimir reben color a mà. Cada detall aporta expressió i personalitat.",unpainted:"ABANS DEL COLOR",painting:"PINTURA A MÀ",
@@ -67,6 +67,7 @@ function languageChange(lang){
  document.documentElement.lang=currentLanguage==="va"?"ca-valencia":"es";
  for(const el of translatable){const key=el.dataset.key;el.innerHTML=currentLanguage==="va"?(va[key]??originals.get(el)):originals.get(el)}
  for(const btn of buttons){const active=btn.dataset.lang===currentLanguage;btn.setAttribute("aria-pressed",String(active))}
+ for(const img of document.querySelectorAll("[data-alt-es]"))img.alt=currentLanguage==="va"?img.dataset.altVa:img.dataset.altEs;
  document.title=currentLanguage==="va"?"Guardians del Planeta · Making of":"Guardianes del Planeta · Making of";
  document.querySelector('meta[name="description"]').content=currentLanguage==="va"?"Descobrix com es van crear sis guardians educatius, des del disseny fins a la impressió 3D i la pintura artesanal.":"Descubre cómo se crearon seis guardianes educativos, desde el diseño hasta la impresión 3D y la pintura artesanal.";
  if(currentGuardian)showGuardian(currentGuardian);
