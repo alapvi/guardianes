@@ -25,7 +25,7 @@ classNote:"El disseny digital i la impressió 3D formen part de l’elaboració 
 artTop:"D’UNA IDEA",artMain:"A UNA AVENTURA",artBottom:"PER A APRENDRE I CUIDAR",
 closingSmall:"EL COMENÇAMENT D’UNA AVENTURA",closingTitle:"No els vam comprar. Els vam fer realitat.",
 closingText:"Els vam imaginar, els vam dissenyar, els vam imprimir i els vam pintar. Ara estan preparats per a acompanyar els menuts guardians del nostre planeta.",
-back:"Torna a l’inici ↑",brandFooter:"GUARDIANS DE LA TERRA",footer:"Un projecte educatiu de creació pròpia.",
+closingCaption:"SIS GUARDIANS, UNA MISSIÓ COMPARTIDA",back:"Torna a l’inici ↑",brandFooter:"GUARDIANS DE LA TERRA",footer:"Un projecte educatiu de creació pròpia.",
 dialogIntro:"CONEIX EL GUARDIÀ",dialogMission:"LA SEUA MISSIÓ",dialogClose:"Torna a la galeria"
 };
 const missions={
