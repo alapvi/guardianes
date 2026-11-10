@@ -1,0 +1,75 @@
+name: Importar fotografías y vídeos de Guardianes
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'guardianes-web-v1.zip'
+permissions:
+  contents: write
+jobs:
+  importar-multimedia:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Extraer exclusivamente medios originales
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          from zipfile import ZipFile
+          from pathlib import Path
+          zip_path = Path("guardianes-web-v1.zip")
+          if not zip_path.exists():
+              raise SystemExit("Falta guardianes-web-v1.zip en la raíz del repositorio")
+          permitted = (
+              "public/assets/img/",
+              "public/assets/video/",
+          )
+          expected = {
+              "public/assets/img/portada/fullguardianes.jpeg",
+              *{f"public/assets/img/guardianes/guardian{i}.jpeg" for i in range(1,7)},
+              "public/assets/img/proceso/3dfinal.png",
+              "public/assets/img/proceso/3dprint.png",
+              "public/assets/img/proceso/electricidad.png",
+              "public/assets/img/proceso/pintura1.jpeg",
+              "public/assets/img/proceso/pintura2.jpeg",
+              "public/assets/img/proceso/poster-01.jpg",
+              "public/assets/img/proceso/poster-02.jpg",
+              "public/assets/video/impresion-01.mp4",
+              "public/assets/video/impresion-02.mp4",
+          }
+          base = Path.cwd().resolve()
+          with ZipFile(zip_path) as archive:
+              names = set(archive.namelist())
+              missing = expected - names
+              if missing:
+                  raise SystemExit("Faltan recursos multimedia: " + ", ".join(sorted(missing)))
+              total = sum(archive.getinfo(n).file_size for n in expected)
+              if total > 30 * 1024 * 1024:
+                  raise SystemExit("El contenido multimedia supera el límite permitido")
+              for name in sorted(expected):
+                  if not name.startswith(permitted):
+                      raise SystemExit(f"Ruta multimedia no permitida: {name}")
+                  dest = (base / name).resolve()
+                  if not dest.is_relative_to(base / "public" / "assets"):
+                      raise SystemExit(f"Ruta insegura: {name}")
+                  dest.parent.mkdir(parents=True, exist_ok=True)
+                  dest.write_bytes(archive.read(name))
+                  print("OK", name, dest.stat().st_size, "bytes")
+          print(f"Extraídos {len(expected)} medios originales")
+          PY
+      - name: Incorporar medios al repositorio
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public/assets/img public/assets/video
+          git rm -f guardianes-web-v1.zip
+          if git diff --cached --quiet; then
+            echo "No hay archivos nuevos"
+            exit 0
+          fi
+          git commit -m "feat: incorporar fotos y vídeos originales de los seis guardianes"
+          git push
