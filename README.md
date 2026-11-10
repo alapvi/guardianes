@@ -74,3 +74,15 @@ La carpeta `public` contiene `index.html`, `assets/css/styles.css`, `assets/js/m
 El error `Could not detect a directory containing static files` puede aparecer al compilar un commit inicial anterior a que existieran esos archivos, o si la compilación se ejecuta en otro directorio. El comando explícito elimina la ambigüedad de detección de directorio. El comando equivalente de `package.json` es `npm run deploy`, que primero ejecuta `npm run check`.
 
 **IMPORTANTE:** los recursos gráficos y los vídeos siguen pendientes de incorporarse a GitHub; esta configuración facilita el despliegue del sitio, pero no sustituye esos archivos.
+
+## Importación automática de las fotografías y vídeos
+
+El repositorio incluye la acción de GitHub `.github/workflows/importar-multimedia.yml`. Para completar los medios sin usar Git local:
+
+1. Descargar el archivo `guardianes-web-v1.zip` facilitado en la conversación.
+2. Entrar en la raíz del repositorio en la rama `main`.
+3. Seleccionar **Add file → Upload files** y subir **el ZIP sin descomprimir** con el nombre exacto `guardianes-web-v1.zip`.
+4. Confirmar el commit. La acción de GitHub verifica el contenido, extrae exclusivamente 14 imágenes (incluidas las 2 portadas de vídeo) y 2 vídeos a `public/assets/`, elimina el ZIP y crea un nuevo commit.
+5. Consultar la pestaña **Actions** del repositorio para confirmar la ejecución. Después Cloudflare debería detectar el commit de los recursos.
+
+Si la acción no puede hacer `git push`, comprobar en **Settings → Actions → General → Workflow permissions** que dispone de permisos de escritura. No volver a subir el HTML ni los scripts del ZIP: la acción copia solo multimedia para conservar la versión publicada del código.
