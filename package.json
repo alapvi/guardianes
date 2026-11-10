@@ -1,9 +1,15 @@
 {
   "name": "guardianes-de-la-tierra",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "private": true,
   "type": "module",
   "description": "Making of bilingüe de seis guardianes educativos diseñados e impresos en 3D.",
-  "scripts": { "dev": "wrangler dev", "deploy": "wrangler deploy" },
-  "devDependencies": { "wrangler": "^4.0.0" }
+  "scripts": {
+    "check": "node scripts/check-deploy.mjs",
+    "dev": "npx wrangler dev --config ./wrangler.jsonc",
+    "deploy": "npm run check && npx wrangler deploy --config ./wrangler.jsonc --assets ./public"
+  },
+  "devDependencies": {
+    "wrangler": "^4.160.0"
+  }
 }
