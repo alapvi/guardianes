@@ -1,8 +1,8 @@
-/* Guardianes de la Tierra — interface ES / VAL, sin servicios externos */
+/* Guardianes del Planeta — interface ES / VAL, sin servicios externos */
 "use strict";
 const va={
-skip:"Ves al contingut",brand:"GUARDIANS <small>DE LA TERRA</small>",nav1:"Projecte",nav2:"Making of",nav3:"Guardians",nav4:"L’aula",
-eyebrow:"UNA CREACIÓ ORIGINAL · SIS MISSIONS",hero1:"Els Guardians",hero2:"de la Terra",tagline:"D’un esbós a una aventura educativa.",
+skip:"Ves al contingut",brand:"GUARDIANS <small>DEL PLANETA</small>",nav1:"Projecte",nav2:"Making of",nav3:"Guardians",nav4:"L’aula",
+eyebrow:"UNA CREACIÓ ORIGINAL · SIS MISSIONS",hero1:"Els Guardians",hero2:"del Planeta",tagline:"D’un esbós a una aventura educativa.",
 heroDesc:"Sis personatges únics, dissenyats, impresos en 3D i pintats a mà per a donar vida a les situacions d’aprenentatge.",
 cta:"Descobrix com van nàixer ↗",heroCaption:"FETS A MÀ, DES DE ZERO",scroll:"LLISCA PER A DESCOBRIR ↓",
 origin:"01 · L’ORIGEN",originTitle:"Una idea que cobra vida.",
@@ -25,7 +25,7 @@ classNote:"El disseny digital i la impressió 3D formen part de l’elaboració 
 artTop:"D’UNA IDEA",artMain:"A UNA AVENTURA",artBottom:"PER A APRENDRE I CUIDAR",
 closingSmall:"EL COMENÇAMENT D’UNA AVENTURA",closingTitle:"No els vam comprar. Els vam fer realitat.",
 closingText:"Els vam imaginar, els vam dissenyar, els vam imprimir i els vam pintar. Ara estan preparats per a acompanyar els menuts guardians del nostre planeta.",
-closingCaption:"SIS GUARDIANS, UNA MISSIÓ COMPARTIDA",back:"Torna a l’inici ↑",brandFooter:"GUARDIANS DE LA TERRA",footer:"Un projecte educatiu de creació pròpia.",
+closingCaption:"SIS GUARDIANS, UNA MISSIÓ COMPARTIDA",back:"Torna a l’inici ↑",brandFooter:"GUARDIANS DEL PLANETA",footer:"Un projecte educatiu de creació pròpia.",
 dialogIntro:"CONEIX EL GUARDIÀ",dialogMission:"LA SEUA MISSIÓ",dialogClose:"Torna a la galeria"
 };
 const missions={
@@ -46,12 +46,12 @@ gota:"Gota, la guardiana del consum responsable de l’aigua, ens ensenya a no m
 chispas:"Chispas, el guardià de l’electricitat, ens ensenya a estalviar energia i a utilitzar-la de manera responsable."
 }};
 const portraits={
-trasto:"/assets/img/guardianes/guardian1.jpeg",
-flora:"/assets/img/guardianes/guardian2.jpeg",
-doris:"/assets/img/guardianes/guardian3.jpeg",
-aeris:"/assets/img/guardianes/guardian4.jpeg",
-gota:"/assets/img/guardianes/guardian5.jpeg",
-chispas:"/assets/img/guardianes/guardian6.jpeg"
+chispas:"/assets/img/guardianes/guardian1.jpeg",
+gota:"/assets/img/guardianes/guardian2.jpeg",
+aeris:"/assets/img/guardianes/guardian3.jpeg",
+doris:"/assets/img/guardianes/guardian4.jpeg",
+flora:"/assets/img/guardianes/guardian5.jpeg",
+trasto:"/assets/img/guardianes/guardian6.jpeg"
 };
 const translatable=[...document.querySelectorAll("[data-key]")];
 const originals=new Map(translatable.map(el=>[el,el.innerHTML]));
@@ -67,7 +67,7 @@ function languageChange(lang){
  document.documentElement.lang=currentLanguage==="va"?"ca-valencia":"es";
  for(const el of translatable){const key=el.dataset.key;el.innerHTML=currentLanguage==="va"?(va[key]??originals.get(el)):originals.get(el)}
  for(const btn of buttons){const active=btn.dataset.lang===currentLanguage;btn.setAttribute("aria-pressed",String(active))}
- document.title=currentLanguage==="va"?"Guardians de la Terra · Making of":"Guardianes de la Tierra · Making of";
+ document.title=currentLanguage==="va"?"Guardians del Planeta · Making of":"Guardianes del Planeta · Making of";
  document.querySelector('meta[name="description"]').content=currentLanguage==="va"?"Descobrix com es van crear sis guardians educatius, des del disseny fins a la impressió 3D i la pintura artesanal.":"Descubre cómo se crearon seis guardianes educativos, desde el diseño hasta la impresión 3D y la pintura artesanal.";
  if(currentGuardian)showGuardian(currentGuardian);
 }

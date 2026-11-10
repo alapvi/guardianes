@@ -1,4 +1,4 @@
-# Guardianes de la Tierra / Guardians de la Terra
+# Guardianes del Planeta / Guardians del Planeta
 
 Web estática bilingüe (castellano/valenciano) para presentar al tribunal el proceso de creación de los seis guardianes educativos: Trasto, Flora, Doris, Aeris, Gota y Chispas.
 
@@ -63,3 +63,9 @@ El error `Could not detect a directory containing static files` puede aparecer a
 La importación desde `guardianes-web-v1.zip` ya se completó correctamente. El flujo `.github/workflows/importar-multimedia.yml` queda disponible para futuras reposiciones del paquete multimedia.
 
 Los recursos se sirven en `/assets/img/` y `/assets/video/`. No es necesario volver a subirlos para el despliegue actual.
+
+## Identidad de los guardianes
+
+Nombre oficial: **Los 6 Guardianes del Planeta** / **Els 6 Guardians del Planeta**.
+
+La galería y las fichas interactivas usan el emparejamiento de imagen y nombre solicitado en la revisión: `guardian1.jpeg → Chispas`, `guardian2.jpeg → Gota`, `guardian3.jpeg → Aeris`, `guardian4.jpeg → Doris`, `guardian5.jpeg → Flora`, `guardian6.jpeg → Trasto`. Los textos de las misiones mantienen la definición del documento de gamificación.
