@@ -2,38 +2,21 @@
 
 Web estática bilingüe (castellano/valenciano) para presentar al tribunal el proceso de creación de los seis guardianes educativos: Trasto, Flora, Doris, Aeris, Gota y Chispas.
 
-## Estado real
+## Estado actual (10/11/2026)
 
-✅ Código de la página, diseño responsive, cambio de idioma y galería interactiva incorporados a `main`.
+✅ Web funcional en `public/` con cinco secciones: portada, origen, making of, galería de los seis guardianes y del taller al aula.
 
-✅ Configuración de Cloudflare Workers con Static Assets (`wrangler.jsonc`) y `package.json`.
+✅ Textos en castellano y valenciano; tarjetas de personajes interactivas, diseño responsive y vídeos con reproducción manual.
 
-⚠️ **Pendiente:** subir fotografías y vídeos originales al repositorio. El código ya tiene las rutas preparadas, pero los archivos multimedia todavía no están en GitHub, por lo que las imágenes no aparecerán en la web desplegada hasta completar esta etapa.
+✅ **Multimedia en la rama `main`**: fotografía grupal, seis retratos individuales, cinco fotografías de proceso, dos carteles de vídeo y dos vídeos MP4.
 
-⚠️ Pendiente: el boceto original para la primera fase del making of.
+✅ La acción de GitHub `.github/workflows/importar-multimedia.yml` completó correctamente la importación y creó los recursos en `public/assets/`.
 
-## Multimedia pendiente (estructura prevista)
+✅ Comprobadas en GitHub todas las rutas de recursos utilizadas por `public/index.html`.
 
-```text
-public/assets/img/portada/fullguardianes.jpeg
-public/assets/img/guardianes/guardian1.jpeg
-public/assets/img/guardianes/guardian2.jpeg
-public/assets/img/guardianes/guardian3.jpeg
-public/assets/img/guardianes/guardian4.jpeg
-public/assets/img/guardianes/guardian5.jpeg
-public/assets/img/guardianes/guardian6.jpeg
-public/assets/img/proceso/electricidad.png
-public/assets/img/proceso/3dprint.png
-public/assets/img/proceso/3dfinal.png
-public/assets/img/proceso/pintura1.jpeg
-public/assets/img/proceso/pintura2.jpeg
-public/assets/img/proceso/poster-01.jpg
-public/assets/img/proceso/poster-02.jpg
-public/assets/video/impresion-01.mp4
-public/assets/video/impresion-02.mp4
-```
+⚠️ Sigue pendiente incorporar una imagen real del boceto inicial. La web presenta esa fase como pendiente, sin inventar un boceto.
 
-Los archivos de medios optimizados ya están incluidos en el ZIP `guardianes-web-v1.zip` que se facilitó en la conversación. No se debe subir el ZIP sin descomprimir: los recursos deben copiarse a sus rutas correspondientes.
+⚠️ La publicación definitiva debe verificarse en Cloudflare Workers y probarse desde un teléfono antes de generar el QR del tribunal.
 
 ## Cloudflare Workers
 
@@ -75,14 +58,8 @@ El error `Could not detect a directory containing static files` puede aparecer a
 
 **IMPORTANTE:** los recursos gráficos y los vídeos siguen pendientes de incorporarse a GitHub; esta configuración facilita el despliegue del sitio, pero no sustituye esos archivos.
 
-## Importación automática de las fotografías y vídeos
+## Importación automática de fotografías y vídeos
 
-El repositorio incluye la acción de GitHub `.github/workflows/importar-multimedia.yml`. Para completar los medios sin usar Git local:
+La importación desde `guardianes-web-v1.zip` ya se completó correctamente. El flujo `.github/workflows/importar-multimedia.yml` queda disponible para futuras reposiciones del paquete multimedia.
 
-1. Descargar el archivo `guardianes-web-v1.zip` facilitado en la conversación.
-2. Entrar en la raíz del repositorio en la rama `main`.
-3. Seleccionar **Add file → Upload files** y subir **el ZIP sin descomprimir** con el nombre exacto `guardianes-web-v1.zip`.
-4. Confirmar el commit. La acción de GitHub verifica el contenido, extrae exclusivamente 14 imágenes (incluidas las 2 portadas de vídeo) y 2 vídeos a `public/assets/`, elimina el ZIP y crea un nuevo commit.
-5. Consultar la pestaña **Actions** del repositorio para confirmar la ejecución. Después Cloudflare debería detectar el commit de los recursos.
-
-Si la acción no puede hacer `git push`, comprobar en **Settings → Actions → General → Workflow permissions** que dispone de permisos de escritura. No volver a subir el HTML ni los scripts del ZIP: la acción copia solo multimedia para conservar la versión publicada del código.
+Los recursos se sirven en `/assets/img/` y `/assets/video/`. No es necesario volver a subirlos para el despliegue actual.
