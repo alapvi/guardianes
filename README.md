@@ -59,3 +59,18 @@ npm run deploy
 ```
 
 Los recursos se servirán como activos estáticos. Los vídeos usan reproducción manual y no se cargan completamente de forma anticipada. El visor STL queda reservado para una versión posterior.
+
+## Cloudflare Workers Builds: despliegue correcto
+
+Configura **Workers y Pages > guardianes > Configuración > Compilaciones** con:
+
+- Rama de producción: `main`
+- Directorio raíz: `/` (raíz del repositorio)
+- Comando de compilación: ninguno (web estática sin bundler)
+- Comando de despliegue: `npx wrangler deploy --config ./wrangler.jsonc --assets ./public`
+
+La carpeta `public` contiene `index.html`, `assets/css/styles.css`, `assets/js/main.js` y recursos básicos. La configuración de Wrangler también declara `assets.directory = "./public"`.
+
+El error `Could not detect a directory containing static files` puede aparecer al compilar un commit inicial anterior a que existieran esos archivos, o si la compilación se ejecuta en otro directorio. El comando explícito elimina la ambigüedad de detección de directorio. El comando equivalente de `package.json` es `npm run deploy`, que primero ejecuta `npm run check`.
+
+**IMPORTANTE:** los recursos gráficos y los vídeos siguen pendientes de incorporarse a GitHub; esta configuración facilita el despliegue del sitio, pero no sustituye esos archivos.
