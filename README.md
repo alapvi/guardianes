@@ -69,3 +69,9 @@ Los recursos se sirven en `/assets/img/` y `/assets/video/`. No es necesario vol
 Nombre oficial: **Los 6 Guardianes del Planeta** / **Els 6 Guardians del Planeta**.
 
 La galería y las fichas interactivas usan el emparejamiento de imagen y nombre solicitado en la revisión: `guardian1.jpeg → Chispas`, `guardian2.jpeg → Gota`, `guardian3.jpeg → Aeris`, `guardian4.jpeg → Doris`, `guardian5.jpeg → Flora`, `guardian6.jpeg → Trasto`. Los textos de las misiones mantienen la definición del documento de gamificación.
+
+## Autoría y origen del proyecto
+
+**Andrea Aparicio García** es la autora de todas las etapas del proyecto: idea, bocetos, modelado digital, preparación STL, impresión 3D, pintura y acabado final. La página abre con una sección de autoría que incluye una fotografía real de Andrea sosteniendo una figura todavía sin pintar. La versión de alta eficiencia de esa fotografía está en `public/assets/img/autoria/andrea-aparicio.webp`.
+
+Esta sección está redactada tanto en castellano como en valenciano y enlaza al making of. Se conserva el resto de contenidos y los seis guardianes originales. No se han modificado las fotografías de los guardianes ni el código de su visor.

@@ -1,6 +1,13 @@
 /* Guardianes del Planeta — interface ES / VAL, sin servicios externos */
 "use strict";
 const va={
+authorKicker:"AUTORIA I CREACIÓ ORIGINAL",
+authorTitle:"Una idea convertida en sis guardians.",
+authorMadeBy:"Un projecte creat íntegrament per",
+authorDescription:"Des de la idea i els primers esbossos fins al modelatge 3D, la preparació dels arxius STL, la impressió, la pintura a mà i l’acabat final: tot el procés creatiu i de fabricació ha sigut realitzat per Andrea.",
+authorPhase1:"Idea i esbossos",authorPhase2:"Disseny 3D",authorPhase3:"Impressió",authorPhase4:"Pintura i acabat",
+authorSeeProcess:"Descobrix com es van fer",
+authorPhotoCaption:"Andrea amb una de les figures originals abans de pintar-la",
 skip:"Ves al contingut",brand:"GUARDIANS <small>DEL PLANETA</small>",nav1:"Projecte",nav2:"Making of",nav3:"Guardians",nav4:"L’aula",
 eyebrow:"UNA CREACIÓ ORIGINAL · SIS MISSIONS",hero1:"Els Guardians",hero2:"del Planeta",tagline:"D’un esbós a una aventura educativa.",
 heroDesc:"Sis personatges únics, dissenyats, impresos en 3D i pintats a mà per a donar vida a les situacions d’aprenentatge.",
@@ -25,7 +32,7 @@ classNote:"El disseny digital i la impressió 3D formen part de l’elaboració 
 artTop:"D’UNA IDEA",artMain:"A UNA AVENTURA",artBottom:"PER A APRENDRE I CUIDAR",
 closingSmall:"EL COMENÇAMENT D’UNA AVENTURA",closingTitle:"No els vam comprar. Els vam fer realitat.",
 closingText:"Els vam imaginar, els vam dissenyar, els vam imprimir i els vam pintar. Ara estan preparats per a acompanyar els menuts guardians del nostre planeta.",
-closingCaption:"SIS GUARDIANS, UNA MISSIÓ COMPARTIDA",back:"Torna a l’inici ↑",brandFooter:"GUARDIANS DEL PLANETA",footer:"Un projecte educatiu de creació pròpia.",
+closingCaption:"SIS GUARDIANS, UNA MISSIÓ COMPARTIDA",back:"Torna a l’inici ↑",brandFooter:"GUARDIANS DEL PLANETA",footer:"Creació original d’Andrea Aparicio García.",
 dialogIntro:"CONEIX EL GUARDIÀ",dialogMission:"LA SEUA MISSIÓ",dialogClose:"Torna a la galeria"
 };
 const missions={
